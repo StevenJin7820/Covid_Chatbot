@@ -1,9 +1,29 @@
 <style>
-    h1 {text-align: center;}
+    h1 {text-align: center;
+        font: 25px Trebuchet, sans-serif;
+        color:black
+    }
+
+    textarea {
+        width: 100%;
+        border:solid 2px black;
+        padding:20px;
+        box-shadow: 5px 5px 5px grey;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+    input{
+        border-radius: 5px;
+        padding:3px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
 </style>
 
 
-<h1>Hello {{ name }} I am Covid-Chatbot</h1>
+<h1>Hello {{ name }}, I am Covid-Chatbot</h1>
 
 <div class="container">
     <div class="row d-flex justify-content-center">
@@ -11,7 +31,7 @@
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1" class="h4 pt-5"></label>
-                    <textarea readonly class="form-control" id="chat-text" rows="20" style="width:100%; border:solid 2px orange;" ></textarea><br>
+                    <textarea readonly class="form-control" id="chat-text" rows="20" ></textarea><br>
                 </div>
                 <div class="form-group">
                     <input class="form-control" id="input" type="text"></br>
