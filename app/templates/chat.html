@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <input class="form-control" id="input" type="text"></br>
                 </div>
-                <input class="btn btn-secondary btn-lg btn-block" id="submit" type="button" value="Send">
+                <input class="btn btn-secondary btn-lg btn-block" id="submit" type="button" value="Send Message">
             </form>
         </div>
     </div>
@@ -28,25 +28,21 @@
     const message = messageInputDom.value;
     chatSocket.send(JSON.stringify({
         'message': message,
-        'username': "Me",
+        'username': 'Me',
     }));
     messageInputDom.value = '';
 };
 
-
 const chatSocket = new WebSocket(
     'ws://' +
-    location.host +
-    '/chat' 
+    window.location.host +
+    '/chat'+
+    '/ws/socket' 
 );
 
 chatSocket.onmessage = function (e) {
     const data = JSON.parse(e.data);
-    console.log(data)
-    let currentDate = new Date();
-    let hours = currentDate.getHours();
-    hours = (hours % 12) || 12;
-    let time = hours + ":" + currentDate.getMinutes();
-    document.querySelector('#chat-text').value += ("Me" + ': ' + data.message + '\n')
+    console.log('Data: ', data)
+    document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
 }
 </script>
