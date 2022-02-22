@@ -35,7 +35,6 @@ button:hover {
 
 .imgcontainer {
   text-align: center;
-  margin: 24px 0 12px 0;
 }
 
 img.avatar {
@@ -44,7 +43,8 @@ img.avatar {
 }
 
 .container {
-  padding:20px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
 }
@@ -64,9 +64,10 @@ img.avatar {
 
 <form action="/chat/" method="post">
     {% csrf_token %}
+    {% load static %}
   <div class="maincontainer">
     <div class="imgcontainer">
-      <img src="../images/header-chat-box.png"/>
+      <img src="{% static "images/logo2.jpg" %}" width="120" height="100" class="d-inline-block align-top" />
     </div>
     <div class="container">
       <label for="uname"><b>Whats your name?</b></label>

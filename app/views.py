@@ -10,4 +10,6 @@ def chat(request):
         username = request.POST.get('uname')
         context = {}
         context['name'] = username
-    return render(request, 'chat.html', context)
+        return render(request, 'chat.html', context)
+    else:
+        return render(request, 'chat.html')
