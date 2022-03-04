@@ -1,0 +1,32 @@
+{"intents":[
+    {
+        "tag": "greetings",
+        "patterns": ["hello","hey","hi","whats up?","How are you", "good day", "greetings"],
+        "responses":["Hello! Do you have any questions about covid?", "Hey! Would you like to ask any covid related questions?", "Hi! Do you have any questions about covid?", "Covid infection rates. Any other questions?", "I'm good are you? No covid I hope. If you have any questions feel free to ask!", "I hope so! Do you have any questions about covid?", "Greetings! Would you like to ask a covid-related question?"]
+    },
+    {
+        "tag": "Goodbye",
+        "patterns": ["Bye", "Cya", "Goodbye", "Ciao", "Peace", "Later", "Catch you later", "have a good day", "good night", "have a good night"],
+        "responses":["Goodbye."]
+    },
+    {
+        "tag": "name",
+        "patterns":["What is your name", "What do I call you", "Who are you", "What should I call you", "Can you tell me your name"],
+        "responses":["My name is Bob the Bot"]
+    },
+    {
+        "tag":"Purpose",
+        "patterns":["What do you do","What are you", "What can you tell me about", "What can I ask", "Are you real?"],
+        "responses":["I answer covid-related questions"]
+    },
+    {
+        "tag": "Cool",
+        "patterns":["Cool"],
+        "responses":["Fuck you"]
+    },
+    {
+        "tag": "",
+        "patterns":[""],
+        "responses":[""]
+    }
+]}
