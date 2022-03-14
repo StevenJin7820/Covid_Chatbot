@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'channels',
-    'nltk',
-    'numpy'
+    'chatterbot.ext.django_chatterbot'
 ]
 
 MIDDLEWARE = [
