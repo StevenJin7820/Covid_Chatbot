@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'channels',
-    'chatterbot.ext.django_chatterbot'
+    'chatterbot.ext.django_chatterbot',
+    'chatterbot',
+    'spacy'
 ]
 
 MIDDLEWARE = [
