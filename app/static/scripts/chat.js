@@ -30,4 +30,5 @@ chatSocket.onmessage = function (e) {
     const data = JSON.parse(e.data);
     console.log('Data: ', data)
     document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
+    document.querySelector('#chat-text').value += ("Coronabot" + ': ' + data.response + " " + '\n')
 }
