@@ -5,11 +5,15 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import spacy
 nlp = spacy.load("en_core_web_sm")
-
 coronabot = ChatBot("Coronabot")
-
+training_data_static = open('app\covidStaticResponses.txt').read().splitlines()
+trainer = ListTrainer(coronabot)
+trainer.train(training_data_static)
 trainer_corpus = ChatterBotCorpusTrainer(coronabot)
-trainer_corpus.train("chatterbot.corpus.english")
+trainer_corpus.train(
+    "chatterbot.corpus.english.greetings",
+    "chatterbot.corpus.english.conversations"
+    )
 
 class ChatRoomUser(WebsocketConsumer):
     def connect(self):
