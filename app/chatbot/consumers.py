@@ -9,13 +9,13 @@ from chatterbot.logic import LogicAdapter
 
 coronabot = ChatBot("Coronabot",
     logic_adapters = [
+            "chatterbot.logic.BestMatch",
         {
-            "chatterbot.logic.BestMatch"
-        },
-        {
-            'import_path': 'customlogic.MyLogicAdapter'  
+            'import_path': 'app.chatbot.customlogic.MyLogicAdapter',
+            'default_response': "I'm sorry I could not find that information",
         }
-    ]
+    ],
+    database_uri='sqlite:///database.sqlite3'
 )
 
 training_data_static = open('app\covidStaticResponses.txt').read().splitlines()

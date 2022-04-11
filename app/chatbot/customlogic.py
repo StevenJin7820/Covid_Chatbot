@@ -24,9 +24,7 @@ class MyLogicAdapter(LogicAdapter):
             totalCases = str(data['data']['cases']['total'])
             totalHospital = str(data['data']['outcomes']['hospitalized']['currently'])
             totalDeath = str(data['data']['outcomes']['death']['total'])
-            statement = "Total Cases: "+totalCases+"\n"
-            +"Total Hospitalized: "+totalHospital+"\n"
-            +"Total Deaths: "+totalDeath
+            statement ="As of today in the US there are"+"\n"+"Total Cases: "+str(totalCases)+"\n"+"Total Hospitalized: "+str(totalHospital)+"\n"+"Total Deaths: "+str(totalDeath)
             confidence = 1
         elif response.status_code == 404:
             statement = "Could not find data sorry."
