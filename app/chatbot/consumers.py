@@ -4,6 +4,8 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import spacy
+
+from app.chatbot.USLogic import MyLogicAdapter
 nlp = spacy.load("en_core_web_sm")
 from chatterbot.logic import LogicAdapter
 
@@ -11,7 +13,11 @@ coronabot = ChatBot("Coronabot",
     logic_adapters = [
             "chatterbot.logic.BestMatch",
         {
-            'import_path': 'app.chatbot.customlogic.MyLogicAdapter',
+            'import_path': 'app.chatbot.USLogic.MyLogicAdapter',
+            'default_response': "I'm sorry I could not find that information",
+        },
+        {
+            'import_path': 'app.chatbot.stateLogic.MyLogicAdapter',
             'default_response': "I'm sorry I could not find that information",
         }
     ],
