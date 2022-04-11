@@ -28,7 +28,7 @@ class MyLogicAdapter(LogicAdapter):
                     deaths = str(state['deaths'])
                     newCases = str(state['todayCases'])
                     recovered = str(state['recovered'])
-                    statement = "In "+state['state']+" there are, \n"+"Current Cases: "+cases+"\n"+"Deaths: "+deaths+'\n'+"New Cases: "+newCases+'\n'+"Recovered: "+recovered
+                    statement = "Today in "+state['state']+" there are, \n"+"Current Cases: "+cases+"\n"+"Deaths: "+deaths+'\n'+"New Cases: "+newCases+'\n'+"Recovered: "+recovered
                     break
             if statement == "-1":
                 statement = "Could not find state data sorry"

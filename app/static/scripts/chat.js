@@ -5,6 +5,7 @@
         const messageInputDom = document.querySelector('#input');
         const message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
+            'type' : 'message',
             'message': message,
             'username': 'Me',
         }));
@@ -30,5 +31,5 @@ chatSocket.onmessage = function (e) {
     const data = JSON.parse(e.data);
     console.log('Data: ', data)
     document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
-    document.querySelector('#chat-text').value += ("Coronabot" + ': ' + data.response + " " + '\n')
+    document.querySelector('#chat-text').value += ("Covid-Chatbot" + ': ' + data.response + " " + '\n')
 }

@@ -9,7 +9,7 @@ from app.chatbot.USLogic import MyLogicAdapter
 nlp = spacy.load("en_core_web_sm")
 from chatterbot.logic import LogicAdapter
 
-coronabot = ChatBot("Coronabot",
+covidChatbot = ChatBot("Covid-Chatbot",
     logic_adapters = [
             "chatterbot.logic.BestMatch",
         {
@@ -25,9 +25,9 @@ coronabot = ChatBot("Coronabot",
 )
 
 training_data_static = open('app\covidStaticResponses.txt').read().splitlines()
-trainer = ListTrainer(coronabot)
+trainer = ListTrainer(covidChatbot)
 trainer.train(training_data_static)
-trainer_corpus = ChatterBotCorpusTrainer(coronabot)
+trainer_corpus = ChatterBotCorpusTrainer(covidChatbot)
 trainer_corpus.train(
     "chatterbot.corpus.english.greetings",
     "chatterbot.corpus.english.conversations"
@@ -37,7 +37,7 @@ class ChatRoomUser(WebsocketConsumer):
     def connect(self):
         self.accept()
 
-        self.send(text_data=json.dumps({
+        self.receive(text_data=json.dumps({
             'type':'successful_connection',
             'message':'Welcome! I am Covid-Chatbot, please ask me any covid related questions.',
             'username':'Covid-Chatbot'
@@ -46,14 +46,14 @@ class ChatRoomUser(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        response = str(coronabot.get_response(message))
+        response = str(covidChatbot.get_response(message))
 
         self.send(text_data=json.dumps({
             'type':'chat',
             'message':message,
             'response':response,
             'username': 'Me'
-        }))
+            }))
 
 
 
