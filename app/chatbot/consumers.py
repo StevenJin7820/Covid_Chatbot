@@ -4,9 +4,10 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import spacy
+import en_core_web_sm
 
 from app.chatbot.USLogic import MyLogicAdapter
-nlp = spacy.load("en_core_web_sm")
+nlp = en_core_web_sm.load()
 from chatterbot.logic import LogicAdapter
 
 covidChatbot = ChatBot("Covid-Chatbot",
