@@ -11,13 +11,12 @@ function submitClick(){
     messageInputDom.value = '';
 }
 
-document.getElementById("input").addEventListener("keyup", function(event) {
-     if (event.keycode === 13) {
-         event.preventDefault();
-         document.getElementById("submit").addEventListener("click", submitClick)
-         document.getElementById("submit").click();
-     }
-});
+document.querySelector('#input').focus();
+document.querySelector('#input').onkeyup = function (e) {
+    if (e.keyCode === 13) { // enter, return
+        document.querySelector('#submit').click();
+    }
+};
 
 var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
 
@@ -33,4 +32,8 @@ const data = JSON.parse(e.data);
 console.log('Data: ', data)
 document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
 document.querySelector('#chat-text').value += ("Covid-Chatbot" + ': ' + data.response + " " + '\n')
+}
+
+chatSocket.onclose = function (e) {
+    console.error('Chat socket suddenly closed?');
 }
