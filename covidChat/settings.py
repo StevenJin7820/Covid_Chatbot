@@ -139,8 +139,22 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = 'covidChat.routing.application'
+
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        "BACKEND": "channels.redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:5000')],
+        }
+    }
+}
+
+CACHES = {
+    "default":{
+        "BACKEND":"django_redis.cache.RedisCache",
+        "LOCATION": [os.environ.get('REDIS_URL', 'redis://localhost:5000')],
+        "OPTIONS":{
+            "CLIENT_CLASS":"django_redis.client.DefaultClient"
+        }
     }
 }
