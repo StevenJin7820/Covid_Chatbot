@@ -19,8 +19,10 @@ document.getElementById("input").addEventListener("keyup", function(event) {
      }
 });
 
+var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+
 const chatSocket = new WebSocket(
-'ws://' +
+ws_scheme + "://" +
 window.location.host +
 '/chat'+
 '/ws/socket' 
