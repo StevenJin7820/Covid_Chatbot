@@ -7,7 +7,7 @@ import spacy
 import en_core_web_sm
 
 from app.chatbot.USLogic import MyLogicAdapter
-nlp = en_core_web_sm.load()
+nlp = spacy.load("en_core_web_sm")
 from chatterbot.logic import LogicAdapter
 
 covidChatbot = ChatBot("Covid-Chatbot",
