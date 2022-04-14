@@ -23,8 +23,7 @@
 const chatSocket = new WebSocket(
     'wss://' +
     window.location.host +
-    '/chat'+
-    '/wss/socket' 
+    '/chat'
 );
 
 chatSocket.onmessage = function (e) {
