@@ -7,9 +7,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 class ENGSM:
     ISO_639_1 = 'en_core_web_sm'
 
-from app.chatbot.USLogic import MyLogicAdapter
-from chatterbot.logic import LogicAdapter
-
 covidChatbot = ChatBot("Covid-Chatbot", tagger_language=ENGSM,
     logic_adapters = [  
             "chatterbot.logic.BestMatch",
@@ -24,8 +21,7 @@ covidChatbot = ChatBot("Covid-Chatbot", tagger_language=ENGSM,
     ],
     database_uri='sqlite:///database.sqlite3'
 )
-
-training_data_static = open('app\covidStaticResponses.txt').read().splitlines()
+training_data_static = open('app/covidStaticResponses.txt').read().splitlines()
 trainer = ListTrainer(covidChatbot)
 trainer.train(training_data_static)
 trainer_corpus = ChatterBotCorpusTrainer(covidChatbot)
