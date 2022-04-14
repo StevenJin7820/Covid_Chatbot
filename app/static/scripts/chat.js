@@ -28,10 +28,10 @@ window.location.host +
 );
 
 chatSocket.onmessage = function (e) {
-const data = JSON.parse(e.data);
-console.log('Data: ', data)
-document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
-document.querySelector('#chat-text').value += ("Covid-Chatbot" + ': ' + data.response + " " + '\n')
+    const data = JSON.parse(e.data);
+    console.log('Data: ', data)
+    document.querySelector('#chat-text').value += (data.username + ': ' + data.message + " " + '\n')
+    document.querySelector('#chat-text').value += ("Covid-Chatbot" + ': ' + data.response + " " + '\n')
 }
 
 chatSocket.onclose = function (e) {
