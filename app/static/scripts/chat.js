@@ -21,10 +21,10 @@
     });
 
 const chatSocket = new WebSocket(
-    'ws://' +
+    'wss://' +
     window.location.host +
     '/chat'+
-    '/ws/socket' 
+    '/wss/socket' 
 );
 
 chatSocket.onmessage = function (e) {
