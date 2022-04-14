@@ -6,7 +6,7 @@ function submitClick(){
     chatSocket.send(JSON.stringify({
         'type' : 'message',
         'message': message,
-        'username': 'Me',
+        'username': 'Covid-Chatbot',
     }));
     messageInputDom.value = '';
 }
