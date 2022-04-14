@@ -142,9 +142,9 @@ ASGI_APPLICATION = 'covidChat.routing.application'
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.redis.core.RedisChannelLayer",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:5000')],
-        }
-    }
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+    },
 }
