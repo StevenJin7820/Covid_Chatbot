@@ -141,10 +141,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = 'covidChat.routing.application'
 
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts":  [('redis', 5000), ('localhost', 8000)],
-        },
-    },
+     "default": {
+         "BACKEND": "channels_redis.core.RedisChannelLayer",
+         "CONFIG": {
+             "hosts":  [('redis', 6379), ('localhost', 8000)],
+         },
+     },
 }
+
+#CHANNEL_LAYERS = {
+   #  "default": {
+  #       "BACKEND": "channels.layers.InMemoryChannelLayer"
+ #    }
+#}

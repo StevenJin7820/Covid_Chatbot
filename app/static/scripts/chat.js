@@ -34,6 +34,10 @@ chatSocket.onmessage = function (e) {
     document.querySelector('#chat-text').value += ("Covid-Chatbot" + ': ' + data.response + " " + '\n')
 }
 
+chatSocket.addEventListener('error', function(event){
+    console.log("Websocket Error: ", event);
+});
+
 chatSocket.onclose = function (e) {
     console.error('Chat socket suddenly closed?');
 }
