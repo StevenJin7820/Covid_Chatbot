@@ -140,11 +140,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = 'covidChat.routing.application'
 
+
 CHANNEL_LAYERS = {
      "default": {
          "BACKEND": "channels_redis.core.RedisChannelLayer",
          "CONFIG": {
-             "hosts": [(os.environ.get('REDIS_URL'), 18710)],
+             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
          },
      },
 }
